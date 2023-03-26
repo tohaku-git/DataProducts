@@ -1,0 +1,62 @@
+---
+title: "Week 2 Assignment"
+author: "Tohaku"
+date: '2023-03-25'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Busiest JR Stations in Tokyo in 2021
+
+```{r}
+df <- data.frame(
+  name = c("JR Shinjuku Station", 
+           "JR Ikebukuro Station",
+           "JR Yokohama Station",
+           "JR Tokyo Station",
+           "JR Shibuya Station",
+           "JR Shinagawa Station"), 
+  lat = c(35.690268632654934,
+          35.73002505037079,
+          35.46671479016112,
+          35.68189820217488, 
+          35.65869609480435, 
+          35.62899421279518),
+  lng = c(139.70121499560898,
+          139.71120047286826,
+          139.62257694947738,
+          139.76703893474428,
+          139.70167868076842,
+          139.73923173420326),
+  passengers = c(522178,
+                 407490,
+                 303759,
+                 282638,
+                 248505,
+                 212502)
+)
+```
+
+```{r}
+library(leaflet)
+leaflet() |>
+  addTiles() |> 
+  addCircles(data = df,
+             lat = ~lat,
+             lng = ~lng,
+             weight = 1,
+             radius = ~sqrt(passengers)*3,
+             popup = ~paste(name, 
+                            "<br>Passengers per day:", 
+                            format(passengers,big.mark=",")))
+```
+
+## Data Source
+
+```{r, comment=""}
+df
+```
+
