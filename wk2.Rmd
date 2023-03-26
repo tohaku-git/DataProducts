@@ -9,34 +9,34 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Busiest JR Stations in Tokyo in 2021
+## Passengers of Okinawa Monorail from April 1st, 2022 to February 28th, 2023
 
 ```{r}
 df <- data.frame(
-  name = c("JR Shinjuku Station", 
-           "JR Ikebukuro Station",
-           "JR Yokohama Station",
-           "JR Tokyo Station",
-           "JR Shibuya Station",
-           "JR Shinagawa Station"), 
-  lat = c(35.690268632654934,
-          35.73002505037079,
-          35.46671479016112,
-          35.68189820217488, 
-          35.65869609480435, 
-          35.62899421279518),
-  lng = c(139.70121499560898,
-          139.71120047286826,
-          139.62257694947738,
-          139.76703893474428,
-          139.70167868076842,
-          139.73923173420326),
-  passengers = c(522178,
-                 407490,
-                 303759,
-                 282638,
-                 248505,
-                 212502)
+  name = c("Naha Airport", 
+           "Oroku",
+           "Prefectural Office",
+           "Omoromachi",
+           "Shuri",
+           "Tedako-Uranishi"), 
+  lat = c(26.206456484720434, 
+          26.196522024831467, 
+          26.21469605242861, 
+          26.222781042395496, 
+          26.219624113196563, 
+          26.24159714008132),
+  lng = c(127.65186887791862,
+          127.66723257144604,
+          127.67942052943985,
+          127.6979599585009,
+          127.72568327112519, 
+          127.74121081707781),
+  passengers = c(5805,
+                 3081,
+                 5539,
+                 4458,
+                 2078,
+                 1574)
 )
 ```
 
@@ -48,7 +48,7 @@ leaflet() |>
              lat = ~lat,
              lng = ~lng,
              weight = 1,
-             radius = ~sqrt(passengers)*3,
+             radius = ~sqrt(passengers)*10,
              popup = ~paste(name, 
                             "<br>Passengers per day:", 
                             format(passengers,big.mark=",")))
