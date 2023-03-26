@@ -9,7 +9,7 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Passengers of Okinawa Monorail from August 10th, 2003 to February 28th, 2023
+## Passengers of Okinawa Monorail from August 10, 2003 to February 28, 2023
 
 ```{r, message=FALSE}
 library(ggplot2)
