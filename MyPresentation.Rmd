@@ -15,11 +15,10 @@ The Okinawa Monorail is the only public rail in Okinawa, a subtropical resort is
 
 Using this Shiny app, you can investigate the number of passengers over time at six important stations. In particular, you can find unusual changes in the following years:
 
-- Moderate drop in 2009 during the financial crisis
 - Sharp drop in 2020 during the pandemic
 - Sharp recovery in 2022 after the pandemic
 
-## Moderate drop in 2009 during the financial crisis
+## Sharp drop in 2020 during the pandemic (R expression)
 
 ```{r, message=FALSE}
 library(dplyr)
@@ -59,12 +58,12 @@ df <-
 df <- df |> 
   mutate(radius = abs(chg),
          color = ifelse(chg > 0,"blue","red"))
+
+df_sub <- df |> 
+  filter(Year == 2020)
 ```
 
-```{r}
-df_sub <- df |> 
-  filter(Year == 2009)
-
+```{r,echo=TRUE,eval=FALSE}
 leaflet() |>
   addTiles() |> 
   addCircles(data = df_sub,
@@ -80,13 +79,9 @@ leaflet() |>
                             format(chg,big.mark=",")))
 ```
 
-
 ## Sharp drop in 2020 during the pandemic
 
 ```{r}
-df_sub <- df |> 
-  filter(Year == 2020)
-
 leaflet() |>
   addTiles() |> 
   addCircles(data = df_sub,
@@ -123,5 +118,4 @@ leaflet() |>
                             "<br>Annual Change:", 
                             format(chg,big.mark=",")))
 ```
-
 
