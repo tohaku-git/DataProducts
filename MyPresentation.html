@@ -7169,6 +7169,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 
 
@@ -7195,25 +7258,35 @@ ul.task-list{list-style: none;}
 <p>Using this Shiny app, you can investigate the number of passengers over time at six important stations. In particular, you can find unusual changes in the following years:</p>
 
 <ul>
-<li>Moderate drop in 2009 during the financial crisis</li>
 <li>Sharp drop in 2020 during the pandemic</li>
 <li>Sharp recovery in 2022 after the pandemic</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Moderate drop in 2009 during the financial crisis</h2></hgroup><article  id="moderate-drop-in-2009-during-the-financial-crisis">
+</article></slide><slide class=""><hgroup><h2>Sharp drop in 2020 during the pandemic (R expression)</h2></hgroup><article  id="sharp-drop-in-2020-during-the-pandemic-r-expression">
 
-<div id="htmlwidget-ca2cc8ecff028938a8e7" style="width:720px;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ca2cc8ecff028938a8e7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircles","args":[[26.2064564847204,26.1965220248315,26.2146960524286,26.2227810423955,26.2196241131966,26.2415971400813],[127.651868877919,127.667232571446,127.67942052944,127.697959958501,127.725683271125,127.741210817078],[250,108.627804912002,165.227116418583,285.306852353742,136.747943311773,null],null,null,{"interactive":true,"className":"","stroke":true,"color":["red","red","red","red","red",null],"weight":1,"opacity":0.5,"fill":true,"fillColor":["red","red","red","red","red",null],"fillOpacity":0.2},["Naha Airport <br>Daily Average: 4,096 <br>Annual Change: -625","Oroku <br>Daily Average: 3,019 <br>Annual Change: -118","Prefectural Office <br>Daily Average: 4,564 <br>Annual Change: -273","Omoromachi <br>Daily Average: 3,714 <br>Annual Change: -814","Shuri <br>Daily Average: 2,939 <br>Annual Change: -187","Tedako-Uranishi <br>Daily Average:    NA <br>Annual Change:   NA"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[26.1965220248315,26.2415971400813],"lng":[127.651868877919,127.741210817078]}},"evals":[],"jsHooks":[]}</script>
+<pre class = 'prettyprint lang-r'>leaflet() |&gt;
+  addTiles() |&gt; 
+  addCircles(data = df_sub,
+             lat = ~lat,
+             lng = ~lng,
+             weight = 1,
+             radius = ~sqrt(radius)*10,
+             color = ~color,
+             popup = ~paste(Station, 
+                            &quot;&lt;br&gt;Daily Average:&quot;, 
+                            format(Passengers,big.mark=&quot;,&quot;),
+                            &quot;&lt;br&gt;Annual Change:&quot;, 
+                            format(chg,big.mark=&quot;,&quot;)))</pre>
 
 </article></slide><slide class=""><hgroup><h2>Sharp drop in 2020 during the pandemic</h2></hgroup><article  id="sharp-drop-in-2020-during-the-pandemic">
 
-<div id="htmlwidget-20e2a31d13fc9ac0b94f" style="width:720px;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-20e2a31d13fc9ac0b94f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircles","args":[[26.2064564847204,26.1965220248315,26.2146960524286,26.2227810423955,26.2196241131966,26.2415971400813],[127.651868877919,127.667232571446,127.67942052944,127.697959958501,127.725683271125,127.741210817078],[672.97845433565,386.781592116274,552.177507691141,505.272203866391,416.293165929973,205.669638012031],null,null,{"interactive":true,"className":"","stroke":true,"color":["red","red","red","red","red","red"],"weight":1,"opacity":0.5,"fill":true,"fillColor":["red","red","red","red","red","red"],"fillOpacity":0.2},["Naha Airport <br>Daily Average: 2,662 <br>Annual Change: -4,529","Oroku <br>Daily Average: 2,258 <br>Annual Change: -1,496","Prefectural Office <br>Daily Average: 3,764 <br>Annual Change: -3,049","Omoromachi <br>Daily Average: 3,119 <br>Annual Change: -2,553","Shuri <br>Daily Average: 1,583 <br>Annual Change: -1,733","Tedako-Uranishi <br>Daily Average:   885 <br>Annual Change:   -423"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[26.1965220248315,26.2415971400813],"lng":[127.651868877919,127.741210817078]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6c8f870c59b5d283293f" style="width:720px;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6c8f870c59b5d283293f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircles","args":[[26.2064564847204,26.1965220248315,26.2146960524286,26.2227810423955,26.2196241131966,26.2415971400813],[127.651868877919,127.667232571446,127.67942052944,127.697959958501,127.725683271125,127.741210817078],[672.97845433565,386.781592116274,552.177507691141,505.272203866391,416.293165929973,205.669638012031],null,null,{"interactive":true,"className":"","stroke":true,"color":["red","red","red","red","red","red"],"weight":1,"opacity":0.5,"fill":true,"fillColor":["red","red","red","red","red","red"],"fillOpacity":0.2},["Naha Airport <br>Daily Average: 2,662 <br>Annual Change: -4,529","Oroku <br>Daily Average: 2,258 <br>Annual Change: -1,496","Prefectural Office <br>Daily Average: 3,764 <br>Annual Change: -3,049","Omoromachi <br>Daily Average: 3,119 <br>Annual Change: -2,553","Shuri <br>Daily Average: 1,583 <br>Annual Change: -1,733","Tedako-Uranishi <br>Daily Average:   885 <br>Annual Change:   -423"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[26.1965220248315,26.2415971400813],"lng":[127.651868877919,127.741210817078]}},"evals":[],"jsHooks":[]}</script>
 
 </article></slide><slide class=""><hgroup><h2>Sharp recovery in 2022 after the pandemic</h2></hgroup><article  id="sharp-recovery-in-2022-after-the-pandemic">
 
-<div id="htmlwidget-cf462ca98bedbedc4b2c" style="width:720px;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cf462ca98bedbedc4b2c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircles","args":[[26.2064564847204,26.1965220248315,26.2146960524286,26.2227810423955,26.2196241131966,26.2415971400813],[127.651868877919,127.667232571446,127.67942052944,127.697959958501,127.725683271125,127.741210817078],[521.82372502599,262.678510731274,392.810386828047,343.074335968169,219.317121994613,214.941852602047],null,null,{"interactive":true,"className":"","stroke":true,"color":["blue","blue","blue","blue","blue","blue"],"weight":1,"opacity":0.5,"fill":true,"fillColor":["blue","blue","blue","blue","blue","blue"],"fillOpacity":0.2},["Naha Airport <br>Daily Average: 5,805 <br>Annual Change: 2,723","Oroku <br>Daily Average: 3,081 <br>Annual Change:   690","Prefectural Office <br>Daily Average: 5,539 <br>Annual Change: 1,543","Omoromachi <br>Daily Average: 4,458 <br>Annual Change: 1,177","Shuri <br>Daily Average: 2,078 <br>Annual Change:   481","Tedako-Uranishi <br>Daily Average: 1,574 <br>Annual Change:   462"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[26.1965220248315,26.2415971400813],"lng":[127.651868877919,127.741210817078]}},"evals":[],"jsHooks":[]}</script></article></slide>
+<div id="htmlwidget-8dd9566bc96156034924" style="width:720px;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8dd9566bc96156034924">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircles","args":[[26.2064564847204,26.1965220248315,26.2146960524286,26.2227810423955,26.2196241131966,26.2415971400813],[127.651868877919,127.667232571446,127.67942052944,127.697959958501,127.725683271125,127.741210817078],[521.82372502599,262.678510731274,392.810386828047,343.074335968169,219.317121994613,214.941852602047],null,null,{"interactive":true,"className":"","stroke":true,"color":["blue","blue","blue","blue","blue","blue"],"weight":1,"opacity":0.5,"fill":true,"fillColor":["blue","blue","blue","blue","blue","blue"],"fillOpacity":0.2},["Naha Airport <br>Daily Average: 5,805 <br>Annual Change: 2,723","Oroku <br>Daily Average: 3,081 <br>Annual Change:   690","Prefectural Office <br>Daily Average: 5,539 <br>Annual Change: 1,543","Omoromachi <br>Daily Average: 4,458 <br>Annual Change: 1,177","Shuri <br>Daily Average: 2,078 <br>Annual Change:   481","Tedako-Uranishi <br>Daily Average: 1,574 <br>Annual Change:   462"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[26.1965220248315,26.2415971400813],"lng":[127.651868877919,127.741210817078]}},"evals":[],"jsHooks":[]}</script></article></slide>
 
 
   <slide class="backdrop"></slide>
