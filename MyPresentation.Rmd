@@ -1,0 +1,127 @@
+---
+title: "Passengers of Okinawa Monorail"
+author: "Tohaku"
+date: '2023-03-28'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+The Okinawa Monorail is the only public rail in Okinawa, a subtropical resort island. It opened in 2003 and linked 15 stations from Naha Airport to Shuri. It was extended to Tedako-Uranishi in 2019.
+
+Using this Shiny app, you can investigate the number of passengers over time at six important stations. In particular, you can find unusual changes in the following years:
+
+- Moderate drop in 2009 during the financial crisis
+- Sharp drop in 2020 during the pandemic
+- Sharp recovery in 2022 after the pandemic
+
+## Moderate drop in 2009 during the financial crisis
+
+```{r, message=FALSE}
+library(dplyr)
+library(tidyr)
+library(leaflet)
+```
+
+```{r}
+df <- 
+  read.csv("okinawa.csv") |> 
+  gather("Station","Passengers",-Year) |> 
+  mutate(Station = recode(Station, 
+                          "Naha.Airport"="Naha Airport",
+                          "Pref.Office"="Prefectural Office",
+                          "Tedako.Uranishi"="Tedako-Uranishi"),
+         lng = case_when(
+           Station == "Naha Airport" ~ 127.65186887791862,
+           Station == "Oroku" ~ 127.66723257144604,
+           Station == "Prefectural Office" ~ 127.67942052943985,
+           Station == "Omoromachi" ~ 127.6979599585009,
+           Station == "Shuri" ~ 127.72568327112519,
+           Station == "Tedako-Uranishi" ~ 127.74121081707781,
+         ),
+         lat = case_when(
+           Station == "Naha Airport" ~ 26.206456484720434,
+           Station == "Oroku" ~ 26.196522024831467,
+           Station == "Prefectural Office" ~ 26.21469605242861,
+           Station == "Omoromachi" ~ 26.222781042395496, 
+           Station == "Shuri" ~ 26.219624113196563,
+           Station == "Tedako-Uranishi" ~ 26.24159714008132,
+         )) |> 
+  group_by(Station) |> 
+  mutate(chg = Passengers - lag(Passengers, n=1))
+```
+
+```{r}
+df <- df |> 
+  mutate(radius = abs(chg),
+         color = ifelse(chg > 0,"blue","red"))
+```
+
+```{r}
+df_sub <- df |> 
+  filter(Year == 2009)
+
+leaflet() |>
+  addTiles() |> 
+  addCircles(data = df_sub,
+             lat = ~lat,
+             lng = ~lng,
+             weight = 1,
+             radius = ~sqrt(radius)*10,
+             color = ~color,
+             popup = ~paste(Station, 
+                            "<br>Daily Average:", 
+                            format(Passengers,big.mark=","),
+                            "<br>Annual Change:", 
+                            format(chg,big.mark=",")))
+```
+
+
+## Sharp drop in 2020 during the pandemic
+
+```{r}
+df_sub <- df |> 
+  filter(Year == 2020)
+
+leaflet() |>
+  addTiles() |> 
+  addCircles(data = df_sub,
+             lat = ~lat,
+             lng = ~lng,
+             weight = 1,
+             radius = ~sqrt(radius)*10,
+             color = ~color,
+             popup = ~paste(Station, 
+                            "<br>Daily Average:", 
+                            format(Passengers,big.mark=","),
+                            "<br>Annual Change:", 
+                            format(chg,big.mark=",")))
+```
+
+
+## Sharp recovery in 2022 after the pandemic
+
+```{r}
+df_sub <- df |> 
+  filter(Year == 2022)
+
+leaflet() |>
+  addTiles() |> 
+  addCircles(data = df_sub,
+             lat = ~lat,
+             lng = ~lng,
+             weight = 1,
+             radius = ~sqrt(radius)*10,
+             color = ~color,
+             popup = ~paste(Station, 
+                            "<br>Daily Average:", 
+                            format(Passengers,big.mark=","),
+                            "<br>Annual Change:", 
+                            format(chg,big.mark=",")))
+```
+
+

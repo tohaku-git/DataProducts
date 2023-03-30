@@ -1,0 +1,13 @@
+name: MyProject
+title: MyProject
+username:
+account: tohaku
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8710698
+bundleId: 7024651
+url: https://tohaku.shinyapps.io/MyProject/
+when: 1680112170.809
+lastSyncTime: 1680112170.80903
+asMultiple: FALSE
+asStatic: FALSE
